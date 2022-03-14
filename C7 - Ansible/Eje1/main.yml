@@ -1,0 +1,9 @@
+
+---
+- hosts: localhost
+  tasks:
+  - name: Creamos nuestro servidor
+    ec2:
+      region: usa-east-1
+      instance_type: t2.micro
+      image: ami-04505e74c0741db8d
