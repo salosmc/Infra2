@@ -2,4 +2,4 @@
 - tasks: 
     - name: create a new ec2 key pair, returns generated private key
       ec2_key:
-      name: my_keypair
+      name: my_keypai
