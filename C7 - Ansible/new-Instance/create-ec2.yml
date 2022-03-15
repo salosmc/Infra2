@@ -55,4 +55,4 @@
        with_items: "{{ ec2.instances }}"
        args:
          tags:
-           Name: MyTargetEc2Instance
+           Name: PruebaAnsible
