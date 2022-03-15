@@ -6,13 +6,13 @@
    tags: provisioning
 
    vars:
-     keypair: MyEC2Key
-     instance_type: t2.small
-     image: ami-020db2c14939a8efb
+     keypair: Clave-Salo
+     instance_type: t2.micro
+     image: ami-04505e74c0741db8d
      wait: yes
      group: webserver
      count: 1
-     region: us-east-2
+     region: us-east-1
      security_group: my-jenkins-security-grp
    
    tasks:
