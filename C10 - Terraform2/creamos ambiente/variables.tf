@@ -48,11 +48,12 @@ variable "private_subnets" {
 */
 variable "access_key" {
     type = string
-    default = "AKIAWB4P7DBDRNZBIMNQ"
+    default = "AKIAWB4P7DBDV4C3XZHT"
     }
+
 variable "secret_key" {
     type = string
-    default = "nzSpABe3nccpGmzr5uP/iR/Rrb0YLS2dbconhR/I"
+    default = "4Hfc9/gPxBBybT0g6oWzqaXNGF+BwlBXuYtZYf8A"
     }
 
 variable "region" {
@@ -64,28 +65,22 @@ variable "aws_region_id" {
     description = "la region"
     type = string
     default = "us-east-1"
-
     }
 
 variable "main_vpc_cidr" {
-
     description = "Nuestro Security Group"
     type = string
     default = "10.0.0.0/24"
-
 }
 
 variable "public_subnets" {
-
     description = "subnet con acceso a internet"
     type = string
     default = "10.0.0.128/26"
 }
 
 variable "private_subnets" {
-
-description = "subnet sin acceso a internet"
-type = string
-default = "10.0.0.192/26"
-
+    description = "subnet sin acceso a internet"
+    type = string
+    default = "10.0.0.192/26"
 }
