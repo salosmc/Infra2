@@ -48,12 +48,12 @@ variable "private_subnets" {
 */
 variable "access_key" {
     type = string
-    default = "AKIAWB4P7DBDV4C3XZHT"
+    default = "AKIAWB4P7DBD5HMJPLP5"
     }
 
 variable "secret_key" {
     type = string
-    default = "4Hfc9/gPxBBybT0g6oWzqaXNGF+BwlBXuYtZYf8A"
+    default = "P12hzGCdpr1OYWXMuscA+3qCyBBGLt0oBdHElJYi"
     }
 
 variable "region" {
