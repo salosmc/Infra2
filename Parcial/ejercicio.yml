@@ -1,0 +1,43 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: Crear grupo de seguridad con HTTPS, HTTP y SSH 
+    ec2_group:
+      name: sg_profe
+      vpc_id: vpc-7a117c07
+      description: sg con las reglas
+      region: us-west-1
+      rules:
+          proto: ssh #nos piden que sea por ssh , se cambia de tcp a ssh
+          ports:
+          - 443
+          - 80
+          - 22 #Si quiero que se conecte por SSH el puerto tiene que ser 22 no 23
+          - 8080
+          cidr_ip: 0.0.0.0/0
+          rule_desc: Acepto todo el trafico
+  - name: Creamos nuestro servidor 
+    ec2:
+      region: us-east-1
+      instance_type: t2.micro
+      image: ami-0c2b8ca1dad447f8a
+      instance_tags:
+        name: Instancia_Profe #corrigo Name por name
+      wait: yes
+      wait_timeout: 500
+      group: sg_profe # el grupo se llama sg_profe en vez de grupo_creado
+      volumes:
+      - device_name: /dev/xvda 
+        volume_type: gp2 
+        volume_size: 8 
+      vpc_subnet_id: subnet-82bceedd
+      assign_public_ip: yes #Cambio a yes, entiendo que para comunicarnos por ssh la ip tiene que ser publica.
+      key_name: millave
+    register: info
+  - name: DNS Publico de nuestro servidor 
+    debug:
+      msg: "La ip publica es {{ info.instances[0].public_ip }} y su DNS es {{ info.instances[0].public_dns_name }}"
+
+#No se realmente si deberia sacar los "-" no termino de entender cuando van o cuando no. 
+#Como por ejemplo en la linea 38 "- name"
